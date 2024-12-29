@@ -1,0 +1,4 @@
+
+<ul th:fragment="OpcionArtistas">
+    <li><option th:each="artista : ${artistas}" th:value="${artista.id}" th:text="${artista.nombre}" ></option></li>
+</ul>

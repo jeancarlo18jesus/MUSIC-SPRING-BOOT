@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://thymeleaf.org">
+  <head th:replace="plantilla/components/error/Head_Main_405::Head_Main">
+  </head>
+<body class="flex bg-slate-800 font-montserrat " >
+    <main class="w-full max-w-[1200px] bg-gray-900 mx-auto min-h-screen shadow-md bg-navy flex items-center justify-center px-4">
+        <div class=" text-center ">
+          <div class="mb-8">
+            <svg class="w-20 h-20 mx-auto float" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 15C16.2044 15 15.4413 14.6839 14.8787 14.1213C14.3161 13.5587 14 12.7956 14 12C14 11.2044 14.3161 10.4413 14.8787 9.87868C15.4413 9.31607 16.2044 9 17 9C17.7956 9 18.5587 9.31607 19.1213 9.87868C19.6839 10.4413 20 11.2044 20 12C20 12.7956 19.6839 13.5587 19.1213 14.1213C18.5587 14.6839 17.7956 15 17 15Z" stroke="#7177f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17 9V7C17 5.67392 16.4732 4.40215 15.5355 3.46447C14.5979 2.52678 13.3261 2 12 2C10.6739 2 9.40215 2.52678 8.46447 3.46447C7.52678 4.40215 7 5.67392 7 7V9" stroke="#7177f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 19C14 19.7956 13.6839 20.5587 13.1213 21.1213C12.5587 21.6839 11.7956 22 11 22C10.2044 22 9.44129 21.6839 8.87868 21.1213C8.31607 20.5587 8 19.7956 8 19V15" stroke="#7177f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 11H3C2.73478 11 2.48043 11.1054 2.29289 11.2929C2.10536 11.4804 2 11.7348 2 12V15C2 15.2652 2.10536 15.5196 2.29289 15.7071C2.48043 15.8946 2.73478 16 3 16H6" stroke="#7177f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+            <h1 class="text-indigo-700 text-9xl font-bold mb-4" th:text="${status}">404</h1>
+            <div class="space-y-4">
+                <h2 class="text-indigo-400 text-2xl font-semibold" th:text="${error}">Página no encontrada</h2>
+                <p class="text-indigo-200 " th:text="${message}">
+                    Lo sentimos, no pudimos encontrar el metodo que estás buscando.
+                </p>
+                <button onclick="goBack()" class="inline-block bg-indigo-700 text-slate-400 px-6 py-3 rounded-lg hover:text-white font-medium hover:bg-indigo-900/90 transition-colors">
+                    Volver al inicio
+                </button>
+            </div>
+        </div>
+    </main>
+    <script>
+        function goBack(){
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

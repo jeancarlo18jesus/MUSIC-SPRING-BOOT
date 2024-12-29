@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://thymeleaf.org">
+    <head th:replace="plantilla/components/Head_Main::Head_Main"></head>
+    <body class=" min-h-screen overflow-hidden flex items-center justify-center flex-col  bg-no-repeat bg-cover bg-bottom  bg-black font-montserrat">
+    <main class="grid grid-cols-2 w-full h-screen">
+        <div class="w-full h-full flex justify-center items-center relative">
+            <form action="" class="absolute top-3 left-2 p-3 " method="get" th:action="@{/home}">
+                <button class=" text-2xl text-white tracking-[20px]">Certus</button>
+            </form>
+               <div class="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden p-6 " >
+                <div>
+                    <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Registro Usuario</h2>
+                    <p class="text-center text-gray-600 mb-6">crea una cuenta para continuar con el login</p>
+                    
+                    <div class="flex mb-4">
+                        <a class="flex-1 py-2 text-center bg-gray-200 text-gray-700" th:href="@{/login}" >Iniciar Sesión</a>
+                        <button class="flex-1 py-2 text-center bg-indigo-900 text-white">Registrarse</button>
+                    </div>
+        
+                    <div id="loginForm">
+                        <form class="space-y-4" method="post" th:object="${usuario}" th:Action="@{/registroGuardar}">
+                            <div>
+                                <label for="register-email" class="block mb-1 font-medium">Username</label>
+                                <input th:field="*{username}" type="text" id="username" name="username" class=" text-2xl font-semibold w-full px-3 py-2 border-2 focus:border-indigo-700 focus:ring-indigo-900  ring-offset-1 ring-2 ring-transparent  outline-none rounded-md text-indigo-900 font-medium" placeholder="ejm: juancito44..." >
+                            </div>
+                            <p th:if="${#fields.hasErrors('username')}" class="text-sm text-red-900 font-semibold" th:errors="*{username}"></p>
+                            <p th:if="${errorUsername}" th:text="${errorUsername}" class="text-sm text-red-900 font-semibold" ></p>
+                            
+                            <div>
+                                <label for="password" class="block mb-1 font-medium">Contraseña</label>
+                                <div class="relative">
+                                    <input th:field="*{password}"  type="password" id="password" name="password" class=" text-2xl font-semibold w-full px-3 py-2 border-2 focus:border-indigo-700 focus:ring-indigo-900  ring-offset-1 ring-2 ring-transparent  outline-none rounded-md text-indigo-900 font-medium" placeholder="contraseña..." >
+                                    <!-- <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                    </button> -->
+                                </div>
+                            </div>
+                            <p th:if="${#fields.hasErrors('password')}" class="text-sm text-red-900 font-semibold" th:errors="*{password}"></p>
+                            
+                            <button type="submit" class="w-full py-2 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-900 cursor-pointer transition duration-300">
+                                Crear Cuenta
+                            </button>
+                        </form>
+                    </div>
+        
+                </div>
+               </div>
+            
+        </div>
+        <div class="w-full h-screen overflow-hidden ">
+            <div class=" w-full h-full bg-red-500">
+                <img class="w-full h-full object-cover" src="https://web-images9.pixpa.com/sfavEvxTfMro8YgmGd0A1NNcBKzAGUyx7ZHYICYB9PM/rs:fit:500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS82MzYwMzIvMTY0NjY5MzI0Ni00ODgzODgtMTMuanBn" alt="login home ">
+            </div>
+        </div>
+    </main>
+
+  
+</body>
+</html>

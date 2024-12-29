@@ -1,0 +1,4 @@
+
+<ul th:fragment="OpcionAlbumn">
+    <li><option th:each="albumn : ${albumnes}" th:value="${albumn.id}" th:text="${albumn.titulo}" ></option></li>
+</ul>

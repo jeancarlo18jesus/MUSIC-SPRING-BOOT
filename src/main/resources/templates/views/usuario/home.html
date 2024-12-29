@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es"  xmlns="http://thymeleaf.org" xmlns:sec="http://thymeleaf.org/extras/spring-security">
+<head th:replace="plantilla/components/Head_Main::Head_Main" ></head>
+<body class="bg-black text-white min-h-screen flex items-center justify-center">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto bg-indigo-800 rounded-lg shadow-xl overflow-hidden">
+            <div class="md:flex">
+                <div class="">
+                    <img class="h-full w-[400px] object-cover " src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2020&q=80" alt="Imagen decorativa">
+                </div>
+                <div class="p-8">
+                    
+                    <div  th:text="${respuesta}"  class="text-green-500">
+                       
+                    </div>
+                    <div class="uppercase tracking-wide text-sm text-indigo-300 font-semibold">Mi Perfil</div>
+                    <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">User Good</h1>
+                    <p class="mt-4 text-xl text-indigo-200">Desarrollador Web</p>
+                    <div class="mt-4 space-y-2">
+                        <p class=" font-bold">Username : <span sec:authentication="name" class="font-bold capitalize"></span> </p>
+                        <p class=" font-bold">Contraseña : <span class="font-bold" >********************</span></p>
+                        <p class=" font-bold">ROLE :  USER</p>
+                    </div>
+                    <div class="mt-6">
+                        <a th:href="@{/usuario/editar/{id}(id=${name})}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105">
+                            Editar Perfil
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <a th:href="@{/home}" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105">
+                            Ir a home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

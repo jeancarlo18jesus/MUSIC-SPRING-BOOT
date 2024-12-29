@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:sec="http://thymeleaf.org/extras/spring-security" >
+<head th:replace="plantilla/components/Head_Main::Head_Main" ></head>
+<body class=" font-montserrat "  >
+    <div class="w-full h-[100vh] bg-gray-900 flex  ">
+        <div class="w-[60%] h-full flex flex-col gap-9 justify-center items-center text-white ">
+            <section class="w-[70%]">
+                <button class="w-[150px] h-[40px] bg-indigo-900 flex justify-center items-center rounded-full cursor-none  ">
+                    <h1   class="text-[18px] font-bold ml-5">CERTUS</h1>
+                </button>
+            </section>
+            <section   class="w-[70%] relative after:content-[''] after:w-[4px]  after:h-[110%] after:rounded-full after:bg-white  after:absolute after:-top-[5%] after:-left-5  ">
+                <P class="font-bold text-[55px]">PROYECTO <br>DE MUSICA</P>
+                <P class="font-semibold text-sm text-slate-300">BY: JESUS JEAN CARLOS GONZALES VELA</P>
+            </section>
+            <section  class="w-[70%]">
+                <button class="w-[500px] h-[40px] rounded-full bg-indigo-600 text-sm font-bold hover:bg-indigo-900 transition-colors duration-300  animate-pulse">
+                    <a th:href="@{/home}" class="w-full h-full  flex justify-center items-center">COMENZAMOS</a>
+                </button>
+            </section>
+            <section class="w-[70%] h-[80px] translate-y-[100px] flex justify-center items-center gap-9 ">
+                <span class="w-[40px] h-[40px] animate-bounce   overflow-hidden">
+                    <img class="w-full h-full object-cover opacity-50" src="https://img.icons8.com/?size=512&id=90519&format=png" alt="thymeleafICON">
+                </span>
+                <span class="w-[100px] h-[40px] animate-bounce overflow-hidden">
+                    <img class="w-full h-full object-cover opacity-50" src="https://media.licdn.com/dms/image/D4D12AQFscCu_T0xB3A/article-cover_image-shrink_600_2000/0/1688794846091?e=2147483647&v=beta&t=W6FiJ_ZGjTh79I8xtLZZ8_-zu58OQb-fcB3cNbc2dZw" alt="thymeleafICON">
+                </span>
+                <span class="w-[60px] h-[40px] animate-bounce  overflow-hidden">
+                    <img class="w-full h-full object-cover opacity-50" src="https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png" alt="thymeleafICON">
+                </span>
+               
+            </section>
+        </div>
+        <div class="w-[40%] h-full opacity-50">
+            <img src="/imgs/gif_main.gif" class="object-cover w-full h-full"></img>
+        </div>
+    </div>
+</body>
+</html>

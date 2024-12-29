@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slime Clippath Image</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .slime-clip {
+            clip-path: path('M 0,100 C 25,120 75,120 100,100 C 100,75 100,25 100,0 C 75,-20 25,-20 0,0 C 0,25 0,75 0,100 Z');
+        }
+    </style>
+</head>
+<body class="bg-black flex items-center justify-center h-screen">
+    <div class="slime-clip w-64 h-64 overflow-hidden bg-red-900">
+        <img src="https://i.pinimg.com/736x/83/47/ee/8347ee89bda3b322f36fff319c3cbb65.jpg" alt="Slime shaped image" class="w-full h-full object-cover">
+    </div>
+</body>
+</html>

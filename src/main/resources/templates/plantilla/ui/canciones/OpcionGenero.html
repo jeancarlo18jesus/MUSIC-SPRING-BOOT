@@ -1,0 +1,4 @@
+
+<ul th:fragment="OpcionGenero">
+    <li><option th:each="genero : ${generos}" th:value="${genero.id}" th:text="${genero.nombre}" ></option></li>
+</ul>

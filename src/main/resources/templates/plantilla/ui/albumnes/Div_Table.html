@@ -1,0 +1,62 @@
+
+
+
+
+
+<div th:fragment="Div_Table" class="w-full p-5">
+    <section class="flex flex-row justify-between w-full items-center " >
+        <p class="text-[35px] text-white animate-pulse font-semibold mb-4">
+            Albumnes Recientes...
+        </p>
+        <a target="_blank" th:href="@{/albumnes/home?format=pdf}"  class="w-[120px] h-9 bg-indigo-900 rounded-sm p-3 visited:bg-green-900/30  visited:text-white flex justify-center items-center font-medium text-gray-500 gap-3 hover:text-white transition-colors hover:bg-indigo-900/30 ">
+            <i class="fa fa-download" aria-hidden="true"></i>  print
+        </a>
+    </section>
+    <div class="bg-gray-800 rounded-lg shadow-gray-800 shadow-lg h-[300px] overflow-auto ">
+        <table class="w-full">
+            <thead class="sticky top-0">
+                <tr class="text-left text-slate-200 bg-indigo-900 text-2xl">
+                    <th class="px-6 py-3">id</th>
+                    <th class="px-6 py-3">Titulo</th>
+                    <th class="px-6 py-3">Artista</th>
+                    <th class="px-6 py-3">Lanzamiento</th>
+                    <th class="px-6 py-3">Nacionalidad</th>
+                    <th class="px-6 py-3"></th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')" class="px-6 py-3">Acciones</th>
+                    <th sec:authorize="hasRole('ROLE_USER')" class="px-6 py-3 "></th>
+                    <th sec:authorize="hasRole('ROLE_USER')" class="px-6 py-3">Popularidad</th>
+                </tr>
+            </thead>
+            <tbody th:if="${albumnes.isEmpty}">
+                <td  class="px-6 py-4 text-white font-bold text-nowrap" >No hay albumnes registrados por ahora... 😒😢</td>
+            </tbody>
+            <tbody>
+                <tr th:each="albumn : ${albumnes}" class="border-t border-gray-700 *:text-gray-500 text-xl">
+                    <td th:text="${albumn.id}" class="px-6 py-4">6 de marzo de 2023</td>
+                    <td th:text="${albumn.titulo}" class="px-6 py-4">6 de marzo de 2023</td>
+                    <td class="px-6 py-4 flex items-center">
+                        <img  src="/imgs/home_all_table_grammy.jpg" alt="Avatar" class="w-8 h-8 rounded-full mr-3 object-cover">
+                        <span th:text="${albumn.artista.nombre}" >Leslie Alexander</span>
+                    </td>
+                    <td th:text="${albumn.fecha}" class="px-6 py-4">60,00 dólares canadienses</td>
+                    <td th:text="${albumn.artista.nacionalidad}" class="px-6 py-4">60,00 dólares canadienses</td>
+                    <td class="px-6 py-4" sec:authorize="hasRole('ROLE_USER')">
+                        <span class="bg-green-900 text-green-300 px-2 py-1 rounded text-sm">Reciente</span>
+                    </td>
+                    <td class="px-6 py-4" sec:authorize="hasRole('ROLE_USER')">
+                        <span class="bg-yellow-500 text-yellow-900 px-2 py-1 rounded text-sm">Éxitoso</span>
+                    </td>
+                    <td class="px-6 py-4" sec:authorize="hasRole('ROLE_USER')">
+                        <span class="bg-black text-slate-300 px-2 py-1 rounded text-sm">Elegancia</span>
+                    </td>
+
+                    <td class="px-6 py-4" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a  th:href="@{/albumnes/editar/{id}(id=${albumn.id})}" title="editar" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
+                    </td>
+                    <td class="px-6 py-4" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a  onclick="return confirm('Esta seguro de eliminar este albumn')" th:href="@{/albumnes/eliminar/{id}(id=${albumn.id})}" title="eliminar" class="font-medium text-red-600 dark:text-red-500 hover:underline">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

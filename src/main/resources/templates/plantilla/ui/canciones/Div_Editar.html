@@ -1,0 +1,51 @@
+
+<div th:fragment="Div_Editar" class="justify-center flex items-center w-full h-full">
+    <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full shadow-lg shadow-gray-700">
+        <h1 class="text-4xl font-bold mb-6 text-center">Editar una Cancion</h1>
+        <form id="registroForm"  method="post" th:object="${cancion}" th:action="@{/canciones/actualizar/{id}(id=${cancion.id})}" autocomplete="off" >
+            <div class="mb-4">
+                <label for="nombre" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-heading mr-2"></i>Titulo
+                </label>
+                <input th:field="*{titulo}" type="text" id="titulo" name="titulo" class="text-xl shadow font-bold appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+            <p th:if="${#fields.hasErrors('titulo')}" class="text-sm text-red-900 font-semibold" th:errors="*{titulo}"></p>
+
+            <div class="mb-4">
+                <label for="duracion" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-clock mr-2 "></i>Duracion
+                </label>
+                <input th:field="*{duracion}" type="time" id="duracion" name="duracion" class="text-xl font-bold shadow appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+            <p th:if="${#fields.hasErrors('duracion')}" class="text-sm text-red-900 font-semibold" th:errors="*{duracion}"></p>
+            <div class="mb-4">
+                <label for="album" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-book mr-2"></i>Album
+                </label>
+                <select th:field="*{albumnes}" id="albumnes" name="albumnes" class="text-xl font-bold shadow appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+                    <option value="">Seleccione un Album</option>
+                    <ul th:replace="plantilla/ui/canciones/OpcionAlbumn::OpcionAlbumn"  ></ul>
+                </select>
+            </div>
+            <p th:if="${#fields.hasErrors('albumnes')}" class="text-sm text-red-900 font-semibold" th:errors="*{albumnes}"></p>
+
+            <div class="mb-4">
+                <label for="genero" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-compact-disc mr-2"></i>Genero
+                </label>
+                <select th:field="*{genero}" id="genero" name="genero" class="text-xl shadow font-bold appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+                    <option value="">Seleccione un Genero</option>
+                    <ul th:replace="plantilla/ui/canciones/OpcionGenero::OpcionGenero"  ></ul>
+                </select>
+            </div>
+            <p th:if="${#fields.hasErrors('genero')}" class="text-sm text-red-900 font-semibold" th:errors="*{genero}"></p>
+    
+
+            <div class="flex items-center justify-between">
+                <button type="submit" id="submitBtn" class="bg-indigo-900 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline w-full" >
+                    Actualizar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

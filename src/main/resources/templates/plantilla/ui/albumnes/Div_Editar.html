@@ -1,0 +1,39 @@
+
+<div th:fragment="Div_Editar" class="justify-center flex items-center w-full h-full">
+    <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full shadow-lg shadow-gray-700">
+        <h1 class="text-4xl font-bold mb-6 text-center">Editar un Albumn</h1>
+        <form id="registroForm"  method="post" th:object="${albumnes}" th:action="@{/albumnes/editar/{id}(id=${albumnes.id})}"  autocomplete="off" >
+            
+            <div class="mb-4">
+                <label for="titulo" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-heading mr-2"></i>Titulo
+                </label>
+                <input  th:field="*{titulo}" type="text" id="titulo" name="titulo" class="text-indigo-900 text-xl font-bold shadow appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+            <p th:if="${#fields.hasErrors('titulo')}" class="text-sm text-red-900 font-semibold" th:errors="*{titulo}"></p>
+              <div class="mb-4">
+                <label for="artista" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-palette mr-2"></i>Artista
+                </label>
+                <select th:field="*{artista}" id="artista" name="artista" class=" text-xl font-bold shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" >
+                    <option value="">Seleccione un Artista</option>
+                    <ul th:replace="plantilla/ui/albumnes/OpcionArtistas::OpcionArtistas"></ul>
+                </select>
+            </div>
+            <p th:if="${#fields.hasErrors('artista')}" th:errors="*{artista}" class="text-sm text-red-900 font-semibold"></p>
+            <div class="mb-4">
+                <label for="fecha" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fas fa-calendar mr-2"></i>Fecha de Lanzamiento
+                </label>
+                <input th:field="*{fecha}" type="date" id="fecha" name="fecha" class=" text-xl font-bold shadow appearance-none border rounded w-full py-2 px-3 text-indigo-900leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+            <p th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}" class="text-sm text-red-900 font-semibold"></p>
+            
+            <div class="flex items-center justify-between">
+                <button type="submit" id="submitBtn" class="bg-indigo-900 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline w-full" >
+                    Actualizar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

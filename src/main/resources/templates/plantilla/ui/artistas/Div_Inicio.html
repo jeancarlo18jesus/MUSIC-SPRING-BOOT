@@ -1,0 +1,28 @@
+<div th:fragment="Div_Inicio" class="w-full grid grid-cols-2">
+  <section class="justify-center flex items-start flex-col">
+    <h2 class="text-[75px] font-bold text-white mb-4 animate-pulse">
+      Bienvenidos <br />
+      Zona de creatividad
+    </h2>
+    <p class="text-slate-300 text-[24px]">
+      Explora nuestros artistas con exito y descubre nuevos artistas
+    </p>
+    <a  sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/artistas/registro}"
+      class="flex justify-center items-center gap-2 w-[200px] h-[40px] bg-indigo-900 rounded-sm mt-9 text-white text-2xl font-light group  hover:scale-105 duration-300 hover:-translate-y-2  transition-transform"
+    >
+      <span>Registrar</span=>
+      <i
+        class="fa-solid fa-chevron-right text-sm group-hover:translate-x-5 transition-transform duration-500"
+      ></i>
+    </a>
+  </section>
+  <section class="justify-center flex items-center">
+    <figure class="w-[500px] h-[500px]">
+      <img
+        class="object-cover w-full h-full"
+        src="/imgs/Artistas/artistas_nicki_nicole.jpeg"
+        alt="imagen musica"
+      />
+    </figure>
+  </section>
+</div>

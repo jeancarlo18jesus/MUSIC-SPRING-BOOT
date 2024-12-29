@@ -1,0 +1,83 @@
+
+<div th:fragment="Div_Editar" class="justify-center flex items-center w-full h-full">
+    <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full shadow-lg shadow-gray-700">
+        <h1 class="text-4xl font-bold mb-6 text-center">Editar un Usuario</h1>
+        <form id="registroForm"  method="post" th:object="${usuario}" th:action="@{/admin/actualizar/{id}(id=${usuario.id})}" autocomplete="off" >
+            <input th:field="*{user_id.id}" readonly type="text" id="user_id.id" name="user_id.id" class="hidden bg-slate-400 text-xl shadow font-bold appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            
+            <div class="mb-4">
+                <label for="user_id.username" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-user mr-2"></i>Username
+                </label>
+                <input th:field="*{user_id.username}" readonly type="text" id="user_id.username" name="user_id.username" class="bg-slate-400 text-xl shadow font-bold appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+            <div class="mb-4">
+                <label for="user_id.username" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-lock mr-2"></i>Password
+                </label>
+                <input th:field="*{user_id.password}" readonly type="text" id="user_id.password" name="user_id.password" class="bg-slate-400 text-xl shadow font-bold appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+            <div class="mb-4">
+                <label for="rol" class="block text-gray-700 font-bold mb-2 text-xl">
+                    <i class="fa-solid fa-user-shield mr-2"></i>Rol
+                </label>
+                <select th:field="*{rol}" id="rol" name="rol" class="font-bold text-indigo-700 shadow appearance-none border rounded text-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" >
+                    <option value="">Seleccione un rol</option>
+                    <option  value="ROLE_ADMIN">ROLE_ADMIN</option>
+                    <option  value="ROLE_USER">ROLE_USER</option>  
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="user_id.enabled" class="block text-gray-700 font-bold mb-2 text-xl">
+                    <i class="fa-solid fa-user-check  mr-2"></i>Enabled
+                </label>
+                <input th:field="*{user_id.enabled}" type="number" max="1" min="0" id="user_id.enabled" name="user_id.enabled" class=" text-xl shadow font-bold appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+
+            </div>
+           
+            <!-- <div class="mb-4">
+                <label for="usuario.id_user.password" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-clock mr-2 "></i>Password
+                </label>
+                <input th:field="*{usuario.id_user.password}" type="text" id="usuario.id_user.password" name="usuario.id_user.password" class="text-xl font-bold shadow appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+            <p th:if="${#fields.hasErrors('password')}" class="text-sm text-red-900 font-semibold" th:errors="*{usuario.id_user.password}"></p> -->
+
+            <!-- <div class="mb-4">
+                <label for="roles" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-clock mr-2 "></i>Password
+                </label>
+                <input th:field="*{roles}" type="text" id="roles" name="roles" class="text-xl font-bold shadow appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+            <p th:if="${#fields.hasErrors('roles')}" class="text-sm text-red-900 font-semibold" th:errors="*{roles}"></p> -->
+            <!-- <div class="mb-4">
+                <label for="album" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-book mr-2"></i>Album
+                </label>
+                <select th:field="*{albumnes}" id="albumnes" name="albumnes" class="text-xl font-bold shadow appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+                    <option value="">Seleccione un Album</option>
+                    <ul th:replace="plantilla/ui/canciones/OpcionAlbumn::OpcionAlbumn"  ></ul>
+                </select>
+            </div>
+            <p th:if="${#fields.hasErrors('albumnes')}" class="text-sm text-red-900 font-semibold" th:errors="*{albumnes}"></p> -->
+
+            <!-- <div class="mb-4">
+                <label for="genero" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-compact-disc mr-2"></i>Genero
+                </label>
+                <select th:field="*{genero}" id="genero" name="genero" class="text-xl shadow font-bold appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+                    <option value="">Seleccione un Genero</option>
+                    <ul th:replace="plantilla/ui/canciones/OpcionGenero::OpcionGenero"  ></ul>
+                </select>
+            </div>
+            <p th:if="${#fields.hasErrors('genero')}" class="text-sm text-red-900 font-semibold" th:errors="*{genero}"></p>
+     -->
+
+            <div class="flex items-center justify-between">
+                <button type="submit" id="submitBtn" class="bg-indigo-900 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline w-full" >
+                    Actualizar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

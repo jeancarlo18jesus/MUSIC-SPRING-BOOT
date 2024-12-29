@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://thymeleaf.org" xmlns:th="http://thymeleaf.org" xmlns:sec="http://thymeleaf.org/extras/spring-security">
+<head th:replace="plantilla/components/Head_Main::Head_Main" ></head>
+<body class="flex font-montserrat flex flex-col bg-black" >
+    <header th:replace="plantilla/components/canciones/Header_Canciones::Header_Canciones" ></header>
+    
+    <div  th:if="${insertado}" data-insertado="insertado" id="alertModal" class="w-full h-12 bg-green-500 flex justify-start items-center text-green-900  py-5 translate-y-0 z-5 transition-all duration-300 ease-in-out transform  " >
+        <p class="font-light text-4xl w-full  " th:text="${insertado}" >Nombre insertado!</p>
+    </div>
+
+    <div  th:if="${actualizado}"   data-actualizado="actualizado" id="alertModal" class="w-full h-12 bg-yellow-500 flex justify-start items-center text-green-900  py-5 translate-y-0 z-5 transition-all duration-300 ease-in-out transform  " >
+        <p class="font-light text-4xl w-full  " th:text="${actualizado}" >Nombre actualizado!</p>
+    </div>
+
+    <div th:if="${eliminado}"  data-eliminado="eliminado" id="alertModal" class="w-full h-12 bg-red-500 flex justify-start items-center text-green-900  py-5 translate-y-0 z-5 transition-all duration-300 ease-in-out transform  " >
+        <p class="font-light text-4xl w-full  "th:text="${eliminado}"  >Nombre eliminado!</p>
+    </div>
+
+
+    <div th:replace="plantilla/ui/canciones/Div_Inicio::Div_Inicio"></div>
+    <main class="w-full max-w-[1200px]   mx-auto max-h-max shadow-md">
+        <main th:replace="plantilla/components/canciones/Body_Main::Body_Main"></main>
+    </main>
+
+    <script  th:src="@{../app.js}" ></script>
+</body>
+</html>

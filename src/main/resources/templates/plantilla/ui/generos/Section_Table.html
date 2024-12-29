@@ -1,0 +1,41 @@
+<section th:fragment="Section_Table" class="p-4 flex flex-col gap-9" >
+    <h2 class="text-[75px] font-bold text-indigo-900 mb-4 text-white text-[35px] animate-pulse"> Generos de Todos</h2>
+    <p class="text-slate-300 text-[24px]">Explora nuestra colección de generos y descubre nuevos generos.</p>
+    <!-- <button class="w-[200px] h-[40px] bg-indigo-900 rounded-full mt-9 text-white text-sm font-bold group"><a href="">Registrar</a> <i class="fa-solid fa-chevron-right group-hover:translate-x-5 transition-transform duration-500  "></i></button> -->
+    <div class="w-full">
+        <section class="flex flex-row justify-between w-full items-center " >
+            <p class="text-[35px] text-white animate-pulse font-semibold mb-4">
+                Generos Recientes...
+            </p>
+            <a target="_blank" th:href="@{/generos/home?format=pdf}"  class="w-[120px] h-9 bg-indigo-900 rounded-sm p-3 visited:bg-green-900/30  visited:text-white flex justify-center items-center font-medium text-gray-500 gap-3 hover:text-white transition-colors hover:bg-indigo-900/30 ">
+                <i class="fa fa-download" aria-hidden="true"></i>  print
+            </a>
+        </section>
+        <div class="bg-gray-800 rounded-sm overflow-auto shadow-gray-800 shadow-lg  h-[300px]">
+            <table class="w-full">
+                <thead class="sticky top-0 bg-red-500">
+                    <tr class="text-left text-slate-200 bg-indigo-900 text-2xl  ">
+                        <th class="px-6 py-3">id</th>
+                        <th class="px-6 py-3">Nombre</th>
+                    </tr>
+                </thead>
+                <tbody th:if="${generos.isEmpty}">
+                    <td  class="px-6 py-4 text-white font-bold text-nowrap" >No hay generos registrados por ahora... 😒😢</td>
+                </tbody>
+                <tbody>
+                    <tr th:each="genero : ${generos}" class="border-t border-gray-700 *:text-gray-500 text-xl">
+                        <td th:text="${genero.id}" class="px-6 py-4">6 de marzo de 2023</td>
+                        <td class="px-6 py-4 flex items-center">
+                            <div class="w-8 h-8 rounded-full mr-3"><img  src="/imgs/Generos/imagen_genero_2.png" alt="Avatar" class="w-full h-full object-cover"></div>
+                            <span th:text="${genero.nombre}" >Leslie Alexander</span>
+                        </td>
+                        <!-- <td class="px-6 py-4">
+                            <span class="bg-green-900 text-green-300 px-2 py-1 rounded text-sm">Exito</span>
+                        </td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p class="text-sm text-gray-700">"Descubrimos juntos la vibrante diversidad de géneros musicales que comienzan con 'H', desde el hip hop hasta el heavy metal, cada uno con su propio ritmo y esencia"</p>
+</section>

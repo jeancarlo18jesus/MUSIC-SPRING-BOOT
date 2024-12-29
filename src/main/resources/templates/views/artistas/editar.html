@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://thymeleaf.org">
+<head th:replace="plantilla/components/Head_Main::Head_Main" ></head>
+<body class="flex bg-black font-montserrat" >
+    <main class="w-full max-w-[1200px] bg-indigo-900 mx-auto min-h-screen shadow-md ">
+        <main th:replace="plantilla/components/artistas/Body_Editar::Body_Editar"></main>
+    </main>
+    <script  th:src="@{../app.js}" ></script>
+</body>
+</html>

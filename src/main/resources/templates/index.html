@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://thymeleaf.org">
+<head th:replace="plantilla/components/Head_Main::Head_Main" ></head>
+<body class="flex bg-black font-montserrat flex flex-col " >
+    <!-- <p class="w-full h-48 bg-black text-white  justify-center items-center" th:text="${nombreUsuario}"></p> -->
+    <header  th:replace="plantilla/components/Header_Home::Header_Home" ></header>
+    <main class="w-full max-w-[1200px]  mx-auto min-h-screen shadow-md ">
+        <div class="w-full h-[600px] flex justify-center items-center cursor-grab  ">
+            <img class="w-[60%] h-[130%] object-cover" src="/imgs/inicio_home_01.avif" alt="imagen de home">
+        </div>  
+        <main  th:replace="plantilla/components/Body_Main::Body_Main"></main>
+        <div class="w-full h-8 bg-white text-gray-900">
+            <p th:text="${success}" ></p>
+        </div>
+        <!-- <p class="text-4xl text-white font-bold hidden" th:text="${nombreUsuario}"></p>k -->
+    </main>
+    <script  th:src="@{../app.js}" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+</body>
+</html>

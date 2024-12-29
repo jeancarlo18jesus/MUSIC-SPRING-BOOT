@@ -1,0 +1,60 @@
+<div th:fragment="Div_Table" class="w-full p-5 bg-black">
+    <section class="flex flex-row justify-between w-full items-center " >
+        <p class="text-[35px] text-white animate-pulse font-semibold mb-4">
+            Canciones Recientes...
+        </p>
+        <a target="_blank" th:href="@{/canciones/home?format=pdf}"  class="w-[120px] h-9 bg-indigo-900 rounded-sm p-3 visited:bg-green-900/30 visited:text-white  flex justify-center items-center font-medium text-gray-500 gap-3 hover:text-white transition-colors hover:bg-indigo-900/30 ">
+            <i class="fa fa-download" aria-hidden="true"></i>  print
+        </a>
+    </section>
+    <div class="bg-gray-800 rounded-lg overflow-auto h-[300px] shadow-gray-800 shadow-lg">
+        <table class="w-full">
+            <thead class="sticky top-0">
+                <tr class="text-left text-slate-200 bg-indigo-900 text-2xl">
+                    <th class="px-6 py-3">id</th>
+                    <th class="px-6 py-3">Titulo</th>
+                    <th class="px-6 py-3">Duracion</th>
+                    <th class="px-6 py-3">Album</th>
+                    <th class="px-6 py-3">Genero</th>
+                    <th class="px-6 py-3">Artista</th>
+                    <th class="px-6 py-3"></th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')" class="px-6 py-3">Acciones</th>
+                    <th sec:authorize="hasRole('ROLE_USER')" class="px-6 py-3 "></th>
+                    <th sec:authorize="hasRole('ROLE_USER')" class="px-6 py-3">Popularidad</th>
+                </tr>
+            </thead>
+            <tbody th:if="${canciones.isEmpty}">
+                <td  class="px-6 py-4 text-white font-bold text-nowrap" >No hay canciones registrados por ahora... 😒😢</td>
+            </tbody>
+            <tbody>
+                <tr th:each="cancion : ${canciones}" class="border-t border-gray-700 *:text-gray-500 text-xl">
+                    <td th:text="${cancion.id}" class="px-6 py-4">6 de marzo de 2023</td>
+                    <td th:text="${cancion.titulo}" class="px-6 py-4">6 de marzo de 2023</td>
+                    <td th:text="${cancion.duracion}" class="px-6 py-4">6 de marzo de 2023</td>
+                    <td th:text="${cancion.albumnes.titulo}" class="px-6 py-4">6 de marzo de 2023</td>
+                    <td th:text="${cancion.genero.nombre}" class="px-6 py-4">6 de marzo de 2023</td>
+                    <td class="px-6 py-4 flex items-center">
+                        <img  src="/imgs/home_all_table_grammy.jpg" alt="Avatar" class="w-8 h-8 rounded-full mr-3 object-cover">
+                        <span th:text="${cancion.albumnes.artista.nombre}" >Leslie Alexander</span>
+                    </td>
+                    <td class="px-6 py-4" sec:authorize="hasRole('ROLE_USER')">
+                        <span class="bg-green-900 text-green-300 px-2 py-1 rounded text-sm">Reciente</span>
+                    </td>
+                    <td class="px-6 py-4" sec:authorize="hasRole('ROLE_USER')">
+                        <span class="bg-yellow-500 text-yellow-900 px-2 py-1 rounded text-sm">Éxitoso</span>
+                    </td>
+                    <td class="px-6 py-4" sec:authorize="hasRole('ROLE_USER')">
+                        <span class="bg-black text-slate-300 px-2 py-1 rounded text-sm">Elegancia</span>
+                    </td>
+                    <td class="px-6 py-4" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a  th:href="@{/canciones/editar/{id}(id=${cancion.id})}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
+                    </td>
+                    <td class="px-6 py-4" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a  onclick="return confirm('Esta seguro de eliminar esta cancion')" th:href="@{/canciones/eliminar/{id}(id=${cancion.id})}" title="eliminar" class="font-medium text-red-600 dark:text-red-500 hover:underline">Eliminar</a>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</div>

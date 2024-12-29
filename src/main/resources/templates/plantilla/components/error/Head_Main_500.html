@@ -1,0 +1,48 @@
+<head th:fragment="Head_Main">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERROR | 500</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            montserrat: ["Montserrat", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #202937 #111827;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #111827;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #202937;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
+  @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .float {
+            animation: float 6s ease-in-out infinite;
+  }
+  </style>
+</head>

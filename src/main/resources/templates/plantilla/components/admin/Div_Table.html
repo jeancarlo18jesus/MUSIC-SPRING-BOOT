@@ -1,0 +1,41 @@
+<div th:fragment="Div_Table" class="w-full p-5">
+    <section class="flex flex-row justify-between w-full items-center " >
+        <p class="text-[35px] text-white animate-pulse font-semibold mb-4">
+            Usuarios Recientes...
+        </p>
+       
+    </section>
+    <div class="bg-gray-800 rounded-lg shadow-gray-800 shadow-lg h-[300px] overflow-auto ">
+        <table class="w-full">
+            <thead class="sticky top-0">
+                <tr class="text-left text-slate-200 bg-indigo-900 text-2xl">
+                    <th class="px-6 py-3">id</th>
+                    <th class="px-6 py-3">Username</th>
+                    <th class="px-6 py-3">Password</th>
+                    <th class="px-6 py-3">Rol</th>
+                    <th class="px-6 py-3">Activo</th>
+                    <th class="px-6 py-3"></th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')" class="px-6 py-3">Acciones</th>
+                </tr>
+            </thead>
+            <tbody th:if="${usuarios.isEmpty}">
+                <td  class="px-6 py-4 text-white font-bold text-nowrap" >No hay usuarios registrados por ahora... 😒😢</td>
+            </tbody>
+            <tbody>
+                <tr th:each="usuario : ${usuarios}" class="border-t border-gray-700 *:text-gray-500 text-xl">
+                    
+                    <td th:text="${usuario.id}" class="capitalize px-6 py-4">6 de marzo de 2023</td>
+                    <td th:text="${usuario.user_id.username}" class="capitalize px-6 py-4">6 de marzo de 2023</td>
+                    <td th:text="${usuario.user_id.password}" class="capitalize px-6 py-4 line-clamp-2 ">60,00 dólares canadienses</td>
+                    <td th:text="${usuario.rol}" class="capitalize px-6 py-4">60,00 dólares canadienses</td>
+                    <td th:text="${usuario.user_id.enabled > 0? 'true':'false'}" class="capitalize px-6 py-4">60,00 dólares canadienses</td>
+                    <td class="px-6 py-4" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a  th:href="@{/admin/editar/{id}(id=${usuario.id})}" title="editar" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
+                    </td>
+                    <td class="px-6 py-4" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a  onclick="return confirm('Esta seguro de eliminar este usuarios')" th:href="@{/admin/eliminar/{id}(id=${usuario.id})}" title="eliminar" class="font-medium text-red-600 dark:text-red-500 hover:underline">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

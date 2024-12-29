@@ -1,0 +1,48 @@
+
+<div th:fragment="Div_Editar" class="justify-center flex items-center w-full h-full">
+    <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full shadow-lg shadow-gray-700">
+        <h1 class="text-4xl font-bold mb-6 text-center">Editar tu perfil</h1>
+        <p class="text-red-500 font-bold text-xl " th:text="${error}">error</p>
+
+        <form id="registroForm"  method="post"  th:action="@{/usuario/actualizar}" autocomplete="off" >
+            <input th:value="${nombre}"  type="text" id="name_actual" name="name_actual" class=" text-xl shadow font-bold appearance-none hidden border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+     
+            <div class="mb-4">
+                <label for="user_id.username" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-user mr-2"></i>Username
+                </label>
+                <input th:value="${nombre}"  type="text" id="username" name="username" class=" text-xl shadow font-bold appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+            <div class="mb-4">
+                <label for="user_id.username" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-lock mr-2"></i>Contraseña actual :
+                </label>
+                <input  type="text" id="contraseña_actual" name="contraseña_actual" class=" text-xl shadow font-bold appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+            <div class="mb-4">
+                <label for="user_id.username" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-lock mr-2"></i>Contraseña nueva :
+                </label>
+                <input  type="password" id="contraseña_nueva" name="contraseña_nueva" class=" text-xl shadow font-bold appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+            <div class="mb-4">
+                <label for="user_id.username" class="block text-gray-700 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-lock mr-2"></i>Confirmar contraseña :
+                </label>
+                <input  type="password" id="confirmar_contraseña" name="confirmar_contraseña" class=" text-xl shadow font-bold appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+            <div class="mb-4">
+                <label for="rol" class="block text-gray-700 font-bold mb-2 text-xl">
+                    <i class="fa-solid fa-user-shield mr-2"></i>Rol
+                </label>
+                <input value="ROLE_USER" readonly type="text" id="rol" name="rol" class="bg-slate-400 text-xl shadow font-bold appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline" >
+            </div>
+
+            <div class="flex items-center justify-between">
+                <button type="submit" id="submitBtn" class="bg-indigo-900 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline w-full" >
+                    Actualizar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

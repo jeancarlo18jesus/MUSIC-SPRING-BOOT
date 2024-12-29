@@ -1,0 +1,20 @@
+<main th:fragment="Body_Main" class=" w-full flex flex-col  p-0 ">
+   <div  th:replace="plantilla/ui/albumnes/Div_Inicio::Div_Inicio" ></div>
+   <div class="w-full flex justify-end -translate-x-5">
+    <a  sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/albumnes/registro}" class=" flex justify-center items-center gap-2  w-[200px] ml-9 h-[40px] bg-indigo-900 rounded-sm mt-9 text-white text-2xl font-light group  hover:scale-105 duration-300 hover:-translate-y-2 transition-transform ">
+        <span>Registrar</span>
+         <i class="fa-solid fa-chevron-right text-sm group-hover:translate-x-5 transition-transform duration-500  "></i>
+        </a>
+   </div>
+
+   <div  th:replace="plantilla/ui/albumnes/Div_Secciones_Image::Div_Secciones_Image" ></div>
+   <div  th:replace="plantilla/ui/albumnes/Div_Table::Div_Table" ></div>
+    <p class="m-5 text-sm text-slate-500">
+        <i>
+            "Sumérgete en la diversidad musical con nuestros álbumes destacados.
+         Desde clásicos atemporales hasta las últimas joyas del panorama actual, cada colección ofrece una experiencia
+          única que celebra la esencia del arte sonoro"
+        </i>
+    </p>
+</div>
+</main>
